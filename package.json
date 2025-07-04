@@ -1,5 +1,5 @@
 {
-  "name": "ai-plaza-embed",
+  "name": "ai-embed-react",
   "version": "1.0.0",
   "description": "Javascript library to display agentic plaza chatbot on your website",
   "type": "module",
@@ -32,7 +32,7 @@
     "node-fetch": "^3.3.2",
     "prettier": "^3.1.0",
     "solid-element": "1.7.0",
-    "solid-js": "1.7.1",
+    "solid-js": "^1.9.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -49,6 +49,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
+    "@wwa/rollup-plugin-terser": "^1.1.2",
     "autoprefixer": "10.4.14",
     "babel-plugin-lodash": "^3.3.4",
     "babel-preset-solid": "1.7.1",
@@ -59,14 +60,13 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-solid": "0.12.0",
     "husky": "^8.0.0",
-    "postcss": "8.4.21",
+    "postcss": "^8.5.6",
     "react": "18.2.0",
-    "rollup": "3.23.0",
+    "rollup": "^3.29.5",
     "rollup-plugin-livereload": "2.0.5",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-serve": "2.0.2",
     "rollup-plugin-typescript-paths": "1.4.0",
-    "rollup-plugin-uglify": "^6.0.4",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.3",
     "uuid": "^9.0.1"

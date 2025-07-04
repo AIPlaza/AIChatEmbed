@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
-import terser from '@rollup/plugin-terser';
+import { terser } from '@wwa/rollup-plugin-terser';
 import { babel } from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
@@ -8,12 +8,10 @@ import tailwindcss from 'tailwindcss';
 import typescript from '@rollup/plugin-typescript';
 import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import commonjs from '@rollup/plugin-commonjs';
-import { uglify } from 'rollup-plugin-uglify';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 
 const isDev = process.env.NODE_ENV === 'development';
-
 const extensions = ['.ts', '.tsx'];
 
 const indexConfig = {
@@ -21,7 +19,6 @@ const indexConfig = {
   plugins: [
     resolve({ extensions, browser: true }),
     commonjs(),
-    uglify(),
     json(),
     babel({
       babelHelpers: 'bundled',
@@ -51,7 +48,7 @@ const indexConfig = {
           }),
           livereload({ watch: 'dist' }),
         ]
-      : []), // Add serve/livereload only in development
+      : []),
   ],
 };
 
@@ -70,7 +67,7 @@ const configs = [
     output: {
       file: 'dist/web.umd.js',
       format: 'umd',
-      name: 'FlowiseEmbed',
+      name: 'AIPlazaEmbed',
     },
   },
 ];

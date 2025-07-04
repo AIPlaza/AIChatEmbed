@@ -1,5 +1,6 @@
 import { Setter } from 'solid-js';
 import { FileEvent, UploadsConfig } from '@/components/Bot';
+import type { FilePreviewType } from './FilePreviewType';
 type TextInputProps = {
     placeholder?: string;
     backgroundColor?: string;
@@ -12,7 +13,7 @@ type TextInputProps = {
     onInputChange: (value: string) => void;
     uploadsConfig?: Partial<UploadsConfig>;
     isFullFileUpload?: boolean;
-    setPreviews: Setter<unknown[]>;
+    setPreviews: Setter<FilePreviewType[]>;
     onMicrophoneClicked: () => void;
     handleFileChange: (event: FileEvent<HTMLInputElement>) => void;
     maxChars?: number;

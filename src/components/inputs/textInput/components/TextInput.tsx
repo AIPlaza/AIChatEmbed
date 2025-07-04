@@ -7,6 +7,7 @@ import { ImageUploadButton } from '@/components/buttons/ImageUploadButton';
 import { RecordAudioButton } from '@/components/buttons/RecordAudioButton';
 import { AttachmentUploadButton } from '@/components/buttons/AttachmentUploadButton';
 import { ChatInputHistory } from '@/utils/chatInputHistory';
+import type { FilePreviewType } from './FilePreviewType';  // Correct import here
 
 type TextInputProps = {
   placeholder?: string;
@@ -20,7 +21,7 @@ type TextInputProps = {
   onInputChange: (value: string) => void;
   uploadsConfig?: Partial<UploadsConfig>;
   isFullFileUpload?: boolean;
-  setPreviews: Setter<unknown[]>;
+  setPreviews: Setter<FilePreviewType[]>;  // Use FilePreviewType here
   onMicrophoneClicked: () => void;
   handleFileChange: (event: FileEvent<HTMLInputElement>) => void;
   maxChars?: number;
@@ -35,13 +36,12 @@ type TextInputProps = {
 
 const defaultBackgroundColor = '#ffffff';
 const defaultTextColor = '#303235';
-// CDN link for default send sound
 const defaultSendSound = 'https://cdn.jsdelivr.net/gh/FlowiseAI/FlowiseChatEmbed@latest/src/assets/send_message.mp3';
 
 export const TextInput = (props: TextInputProps) => {
   const [isSendButtonDisabled, setIsSendButtonDisabled] = createSignal(false);
   const [warningMessage, setWarningMessage] = createSignal('');
-  const [inputHistory] = createSignal(new ChatInputHistory(() => props.maxHistorySize || 10));
+  const [inputHistory] = createSignal(new ChatInputHistory(() => props.maxHistorySize ?? 10));
   let inputRef: HTMLInputElement | HTMLTextAreaElement | undefined;
   let fileUploadRef: HTMLInputElement | HTMLTextAreaElement | undefined;
   let imgUploadRef: HTMLInputElement | HTMLTextAreaElement | undefined;

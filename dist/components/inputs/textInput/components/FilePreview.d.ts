@@ -1,11 +1,8 @@
+import type { FilePreviewType } from './FilePreviewType';
 type CardWithDeleteOverlayProps = {
-    item: {
-        name: string;
-    };
+    item: FilePreviewType;
     disabled?: boolean;
-    onDelete: (item: {
-        name: string;
-    }) => void;
+    onDelete: (item: FilePreviewType) => void;
 };
 export declare const FilePreview: (props: CardWithDeleteOverlayProps) => import("solid-js").JSX.Element;
 export {};

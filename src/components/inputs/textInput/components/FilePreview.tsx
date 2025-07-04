@@ -1,10 +1,11 @@
 import { createSignal } from 'solid-js';
 import { TrashIcon, AttachmentIcon } from '../../../icons';
+import type { FilePreviewType } from './FilePreviewType';
 
 type CardWithDeleteOverlayProps = {
-  item: { name: string };
+  item: FilePreviewType;
   disabled?: boolean;
-  onDelete: (item: { name: string }) => void;
+  onDelete: (item: FilePreviewType) => void;
 };
 
 export const FilePreview = (props: CardWithDeleteOverlayProps) => {
@@ -24,12 +25,13 @@ export const FilePreview = (props: CardWithDeleteOverlayProps) => {
   return (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} class="relative inline-block">
       <div
-        class={`inline-flex items-center h-12 max-w-max p-2 flex-none transition-opacity duration-300 ${
-          isHovered() ? 'opacity-100' : 'opacity-100'
-        } ${isHovered() ? 'bg-[rgba(0,0,0,0.3)]' : `bg-[${defaultBackgroundColor}]`} border border-gray-300 rounded-md`}
+        class="inline-flex items-center h-12 max-w-max p-2 flex-none transition-opacity duration-300 opacity-100 border border-gray-300 rounded-md"
+        style={`background-color: ${isHovered() ? 'rgba(0,0,0,0.3)' : defaultBackgroundColor}`}
       >
         <AttachmentIcon color="#303235" class={`transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`} />
-        <span class={`ml-1.5 'text-inherit transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`}>{props.item.name}</span>
+        <span class={`ml-1.5 text-inherit transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`}>
+          {props.item.name}
+        </span>
       </div>
       {isHovered() && !props.disabled && (
         <button
@@ -37,6 +39,7 @@ export const FilePreview = (props: CardWithDeleteOverlayProps) => {
           onClick={() => props.onDelete(props.item)}
           class="absolute top-0 left-0 right-0 bottom-0 bg-transparent hover:bg-transparent flex items-center justify-center"
           title="Remove attachment"
+          aria-label={`Remove attachment ${props.item.name}`}
         >
           <TrashIcon color="white" />
         </button>
