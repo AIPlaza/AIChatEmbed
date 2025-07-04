@@ -7,7 +7,7 @@ import { ImageUploadButton } from '@/components/buttons/ImageUploadButton';
 import { RecordAudioButton } from '@/components/buttons/RecordAudioButton';
 import { AttachmentUploadButton } from '@/components/buttons/AttachmentUploadButton';
 import { ChatInputHistory } from '@/utils/chatInputHistory';
-import type { FilePreviewType } from './FilePreviewType';  // Correct import here
+import type { FilePreviewType } from './FilePreviewType'; // Correct import here
 
 type TextInputProps = {
   placeholder?: string;
@@ -21,7 +21,7 @@ type TextInputProps = {
   onInputChange: (value: string) => void;
   uploadsConfig?: Partial<UploadsConfig>;
   isFullFileUpload?: boolean;
-  setPreviews: Setter<FilePreviewType[]>;  // Use FilePreviewType here
+  setPreviews: Setter<FilePreviewType[]>; // Use FilePreviewType here
   onMicrophoneClicked: () => void;
   handleFileChange: (event: FileEvent<HTMLInputElement>) => void;
   maxChars?: number;

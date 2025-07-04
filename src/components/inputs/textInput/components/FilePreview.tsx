@@ -29,9 +29,7 @@ export const FilePreview = (props: CardWithDeleteOverlayProps) => {
         style={`background-color: ${isHovered() ? 'rgba(0,0,0,0.3)' : defaultBackgroundColor}`}
       >
         <AttachmentIcon color="#303235" class={`transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`} />
-        <span class={`ml-1.5 text-inherit transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`}>
-          {props.item.name}
-        </span>
+        <span class={`ml-1.5 text-inherit transition-filter duration-300 ${isHovered() ? 'blur-[2px]' : 'blur-none'}`}>{props.item.name}</span>
       </div>
       {isHovered() && !props.disabled && (
         <button
